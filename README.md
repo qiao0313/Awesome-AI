@@ -13,3 +13,8 @@
     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=qiao0313/Awesome-AI&type=Date" />
   </picture>
 </a>
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=qiao0313/Awesome-AI&type=Date)](https://star-history.com/#qiao0313/Awesome-AI&Date)
+
