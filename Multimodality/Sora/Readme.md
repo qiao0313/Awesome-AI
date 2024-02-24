@@ -1,5 +1,5 @@
 # 文本生成视频AI模型 Sora 技术解读
-<img src="images/Sora.jpg" alt="Sora" width="500"/>
+<img src="Images/Sora.jpg" alt="Sora" width="500"/>
 
 ## Sora 简介
 Sora是由OpenAI研发的Text-to-Video模型，可以看作是GPT2 -> GPT3的飞跃。Sora的核心思想就是堆数据堆算力，即利用大规模的视频数据以及非常多的算力训练视频生成模型，类似的思路已经在LLM中得到验证。具体而言，在数据方面，使用不同时长、不同分辨率以及不同高宽比的视频和图像数据训练文本条件扩散模型；模型方面，使用Transformer结构对视频和图像的时空patch的潜在编码进行操作。他们通过实验得出：大规模的视频生成模型是构建物理世界通用模拟器的一条很有前途的途径。技术报告原文为[video-generation-models-as-world-simulators](https://openai.com/research/video-generation-models-as-world-simulators)，然而比较遗憾的是，并未说明如何构建数据，如何训练模型以及有哪些trick。
@@ -13,7 +13,7 @@ Sora是由OpenAI研发的Text-to-Video模型，可以看作是GPT2 -> GPT3的飞
 
 LLM范式的成功在一定程度上得益于token的使用，token优雅地统一了文本的各种形式——代码、数学和各种自然语言。因此，他们考虑如何让视频生成模型继承这些优点，根据之前大量的工作，patch被证明是视觉数据有效的表示，例如[ViT](https://arxiv.org/pdf/2010.11929.pdf)，因此他们选择使用patch作为视频生成模型的基本单元。他们通过实验发现，使用patch表示视频和图像数据训练视频生成模型具有高度的可扩展性和有效性。他们首先将视频利用视觉编码器压缩到较低维度的潜在空间中，随后将表示分解为时空patch。
 
-<img src="images/visual_data_representation.jpg" alt="visual_data_representation" width="500"/>
+<img src="Images/visual_data_representation.jpg" alt="visual_data_representation" width="500"/>
 
 ### 视频压缩网络
 
@@ -27,7 +27,7 @@ LLM范式的成功在一定程度上得益于token的使用，token优雅地统�
 
 Sora使用了[Diffusion Transformer（DiT）](https://arxiv.org/pdf/2212.09748.pdf)作为模型结构，对于输入的噪声patch，以及类似文本prompt的条件信息，Sora被用于训练生成原始视频的patch。之所以选择Transformer，是因为Transformer已经被证明在许多领域都有显著的缩放特性，例如语言建模，计算机视觉以及图像生成。他们通过实验发现，随着计算资源的增加，生成视频的质量显著提升。
 
-<img src="images/DiT.jpg" alt="DiT" width="500"/>
+<img src="Images/DiT.jpg" alt="DiT" width="500"/>
 
 ### 可变时长、分辨率、高宽比
 
@@ -57,7 +57,7 @@ Sora可以通过在时间范围为一帧的空间网格中排列高斯噪声patc
 
 参考网上大神画的图，Sora的整体模型结构如下：
 
-<img src="images/Sora_model.jpg" alt="Sora_model" width="500"/>
+<img src="Images/Sora_model.jpg" alt="Sora_model" width="500"/>
 
 其中需要注意几点：
 - 在Conditioning阶段可能不是一帧对应一个文本，而可能是几帧十几帧对应一段文本描述。
