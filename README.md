@@ -3,7 +3,3 @@
 
 ## Updates
 - [2024-2-24] 添加Sora技术报告解读
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=qiao0313/Awesome-AI&type=Date)](https://star-history.com/#qiao0313/Awesome-AI&Date)
