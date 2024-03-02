@@ -4,6 +4,6 @@
 ## Table of Content
 - Awesome-AI
   - Multimodality
-    - Sora
+    - [Sora](Awesome-AI/Multimodality/Sora/Readme.md)
   - LLM
-    - Gemma
+    - [Gemma](Awesome-AI/LLM/Gemma/Readme.md)
